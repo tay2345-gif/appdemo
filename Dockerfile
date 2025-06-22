@@ -1,17 +1,17 @@
-# Use an official Python image
 FROM python:3.11-slim
 
-# Set the working directory
+# Set the working directory inside the container
 WORKDIR /app
 
-# Copy app code and dependencies
-COPY App/ ./    # Assuming app.py and requirements.txt are inside ./App/
+# Copy all contents from your local App/ folder into the container
+COPY App/ ./
 
-# Install dependencies
+# Install Python dependencies
 RUN pip install --no-cache-dir -r requirements.txt
 
-# Expose port 80
+# Expose the port Flask will use
 EXPOSE 80
 
 # Run the app
 CMD ["python", "app.py"]
+
