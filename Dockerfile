@@ -2,11 +2,11 @@
 FROM python:3.11-slim
 
 # Set the working directory
-WORKDIR /app
+WORKDIR /App
 
 # Copy app code
-COPY app/ ./app/
-COPY app/requirements.txt .
+COPY App/ ./app/
+COPY App/requirements.txt .
 
 # Install dependencies
 RUN pip install --no-cache-dir -r requirements.txt
@@ -15,4 +15,4 @@ RUN pip install --no-cache-dir -r requirements.txt
 EXPOSE 80
 
 # Run the app
-CMD ["python", "app/app.py"]
+CMD ["python", "App/app.py"]
