@@ -2,11 +2,10 @@
 FROM python:3.11-slim
 
 # Set the working directory
-WORKDIR /App
+WORKDIR /app
 
-# Copy app code
-COPY App/ ./app/
-COPY App/requirements.txt .
+# Copy app code and dependencies
+COPY App/ ./    # Assuming app.py and requirements.txt are inside ./App/
 
 # Install dependencies
 RUN pip install --no-cache-dir -r requirements.txt
@@ -15,4 +14,4 @@ RUN pip install --no-cache-dir -r requirements.txt
 EXPOSE 80
 
 # Run the app
-CMD ["python", "App/app.py"]
+CMD ["python", "app.py"]
