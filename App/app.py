@@ -1,10 +1,21 @@
-from flask import Flask
+from flask import Flask, request, jsonify
+from game_logic import play_game
 
 app = Flask(__name__)
 
-@app.route("/")
-def hello():
-    return "🚀 Hello from a Dockerized Flask app with GitHub Actions CI/CD! This Tashuan Lawrence"
+@app.route('/')
+def index():
+    return "🕵️ Welcome to 007 Island (DevOps Edition). Use /play endpoint."
 
-if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=80)
+@app.route('/play', methods=['POST'])
+def play():
+    data = request.get_json()
+    choice1 = data.get('choice1')
+    choice2 = data.get('choice2')
+    choice3 = data.get('choice3')
+
+    result = play_game(choice1, choice2, choice3)
+    return jsonify({'result': result})
+
+if __name__ == '__main__':
+    app.run(host='0.0.0.0', port=80)
