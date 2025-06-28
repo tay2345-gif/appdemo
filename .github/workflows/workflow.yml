@@ -26,7 +26,7 @@ jobs:
       with:
         context: .
         push: true
-        tags: tay2001/myapp:latest
+        tags: tay2001/007island:latest
 
     - name: Deploy to Remote Server via SSH
       uses: appleboy/ssh-action@v1.0.0
@@ -35,8 +35,8 @@ jobs:
         username: ${{ secrets.USERNAME }}
         key: ${{ secrets.SSH_PRIVATE_KEY }}
         script: |
-          docker pull tay2001/myapp:latest
+          docker pull tay2001/007island:latest
           docker stop myapp || true
           docker rm myapp || true
-          docker run -d -p 80:80 --name myapp tay2001/myapp:latest
+          docker run -d -p 80:80 --name myapp tay2001/007island:latest
 
