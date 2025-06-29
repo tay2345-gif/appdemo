@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>007 Island: DevOps Edition</title>
+</head>
+<body>
+  <h1>🕵️ Welcome to 007 Island</h1>
+  <p>{{ message }}</p>
+  <form method="post">
+    {% if step == 1 %}
+      <label>You're at a crossroad. Go left or right?</label><br>
+      <input type="text" name="choice1" required>
+    {% elif step == 2 %}
+      <label>You came to a lake. Wait or swim?</label><br>
+      <input type="hidden" name="choice1" value="{{ choices.choice1 }}">
+      <input type="text" name="choice2" required>
+    {% elif step == 3 %}
+      <label>3 doors ahead. Red, Yellow, or Blue?</label><br>
+      <input type="hidden" name="choice1" value="{{ choices.choice1 }}">
+      <input type="hidden" name="choice2" value="{{ choices.choice2 }}">
+      <input type="text" name="choice3" required>
+    {% endif %}
+    <br><br>
+    <button type="submit">Submit</button>
+  </form>
+</body>
+</html>
