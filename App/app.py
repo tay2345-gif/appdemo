@@ -1,5 +1,5 @@
 from flask import Flask, render_template, request
-from game_logic import play_game
+from game_logic import play_game 
 
 app = Flask(__name__)
 
