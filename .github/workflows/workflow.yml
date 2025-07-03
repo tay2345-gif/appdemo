@@ -25,7 +25,7 @@ jobs:
 
       - name: Run Test
         run: |
-          pytest tests/
+          pytest App/
           
   build-and-deploy:
     needs: test
